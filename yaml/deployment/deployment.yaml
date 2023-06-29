@@ -1,0 +1,34 @@
+# some important commands for deployments
+# create deployment -  kubectl create -f deploynemt.yaml
+# getting deployment -  kubectl get deployment
+# update/create -  kubectl apply -f deployment.yaml
+# change image -  kubectl set image deployment/mywebapp-deployment nginx=nginx:1.9.1
+# check status -  kubectl rollout status deployment/mywebapp-deployment
+# rollout history -  kubectl rollout history deployment/mywebapp-deployment
+# undo deployment -  kubectl rollout undo deployment/mywebapp-deployment
+# undo to specific version -  kubectl rollout undo deployment/mywebapp-deployment --to-revision=
+
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: mywebapp-deployment
+  labels:
+    app: mywebapp
+    tier: frontend
+spec:
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      name: mywebapp-pod
+      labels:
+        app: mywebapp
+        tier: frontend
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+  replicas: 3
