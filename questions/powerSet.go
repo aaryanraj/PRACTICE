@@ -13,7 +13,7 @@ func main() {
 	for num := 0; num < int(math.Pow(2, float64(n))); num++ {
 		var str string
 		for i := 0; i < n; i++ {
-			if num&(1<<i) == 0 {
+			if num&(1<<i) == 0 { // & with the same number gives 0 so by doing & in a loop we can know which bit is set.
 				str = str + string(input[i])
 			}
 		}
