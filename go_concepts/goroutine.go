@@ -5,16 +5,16 @@ import (
 	"time"
 )
 
-func main() {
-	go count("sheep")
-	go count("fish")
-
-	fmt.Scanln()
-}
-
-func count(in string) {
+func countAnimal(in string) {
 	for {
 		fmt.Println(in)
 		time.Sleep(time.Millisecond * 500)
 	}
+}
+
+func main() {
+	go countAnimal("sheep")
+	go countAnimal("fish")
+
+	fmt.Scanln()
 }
