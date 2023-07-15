@@ -4,6 +4,8 @@
 // third approch -- save all the non zero in one array and add zeros at last
 package main
 
+import "fmt"
+
 //first approch
 /*
 func swap(arr []int, a, b int) {
@@ -39,5 +41,16 @@ func main() {
 }
 */
 func main() {
-
+	input := []int{0, 1, 0, 0, 0, 0, 4}
+	var zero, nonZero []int
+	len := len(input)
+	for i := 0; i < len; i++ {
+		if input[i] == 0 {
+			zero = append(zero, input[i])
+		} else {
+			nonZero = append(nonZero, input[i])
+		}
+	}
+	nonZero = append(nonZero, zero...)
+	fmt.Println(nonZero)
 }

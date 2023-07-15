@@ -34,7 +34,7 @@ func main() {
 	input := [][]int{{2, 6}, {1, 3}, {5, 10}, {15, 18}}
 	fmt.Println(input)
 	var ans [][]int
-	sort.Sort(twoD(input))
+	sort.Sort(twoD(input)) //sort on the starting time
 	fmt.Println("Sorted: ", input)
 	tempInterval := input[0]
 

@@ -13,7 +13,7 @@ func main() {
 	fmt.Println("Enter the string")
 	scanner.Scan()
 	input := scanner.Text()
-
+	var str string
 	unique := make(map[rune]int)
 	var delRequired int
 
@@ -23,7 +23,9 @@ func main() {
 			delRequired++
 		} else {
 			unique[val] = 1
+			str = str + string(val)
 		}
 	}
 	fmt.Println(delRequired)
+	fmt.Println(str)
 }
